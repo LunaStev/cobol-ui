@@ -1,2 +1,2 @@
 *.rs linguist-language=Rust
-*.cbl linguist-language=Cobol
+*.cbl linguist-language=COBOL

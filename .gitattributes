@@ -1,2 +1,2 @@
 *.rs linguist-language=Rust
-*.cbl linguist-language=COBOL
+*.cbl linguist-language=COBOL linguist-detectable=true

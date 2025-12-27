@@ -1,3 +1,5 @@
+*> cobol-ui declarative UI file
+
 01 SCREEN ID "settings".
    05 HEADER.
       10 TEXT VALUE "Settings".

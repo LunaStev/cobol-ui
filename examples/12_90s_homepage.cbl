@@ -1,3 +1,5 @@
+*> cobol-ui declarative UI file
+
 01 SCREEN NOSTYLE "true" ID "home".
    05 HEADER.
       10 CENTER.

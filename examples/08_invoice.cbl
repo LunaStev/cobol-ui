@@ -1,3 +1,5 @@
+*> cobol-ui declarative UI file
+
 01 SCREEN CLASS "invoice".
    05 HEADER.
       10 TEXT VALUE "Invoice".

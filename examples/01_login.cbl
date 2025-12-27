@@ -1,3 +1,5 @@
+*> cobol-ui declarative UI file
+
 01 SCREEN ID "login".
    05 HEADER.
       10 TEXT VALUE "Login".

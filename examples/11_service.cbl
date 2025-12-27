@@ -1,3 +1,5 @@
+*> cobol-ui declarative UI file
+
 01 SCREEN ID "app" CLASS "saas-app".
    05 HEADER ID "topbar" CLASS "topbar".
       10 ROW CLASS "topbar-row".

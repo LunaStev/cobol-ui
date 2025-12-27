@@ -78,12 +78,47 @@ impl<'a> Lexer<'a> {
     }
 
     fn skip_ws(&mut self) {
-        while let Some(b) = self.peek() {
-            match b {
-                b' ' | b'\t' | b'\r' | b'\n' => {
-                    self.bump();
+        loop {
+            while let Some(b) = self.peek() {
+                match b {
+                    b' ' | b'\t' | b'\r' | b'\n' => {
+                        self.bump();
+                    }
+                    _ => break,
                 }
-                _ => break,
+            }
+
+            let saved_idx = self.idx;
+            let saved_col = self.col;
+
+            if self.col == 1 {
+                if self.peek() == Some(b'*') {
+                    self.skip_line();
+                    continue;
+                }
+                if self.peek() == Some(b'/')
+                    && self.bytes.get(self.idx + 1) == Some(&b'/')
+                {
+                    self.skip_line();
+                    continue;
+                }
+                if self.peek() == Some(b'#') {
+                    self.skip_line();
+                    continue;
+                }
+            }
+
+            if self.idx == saved_idx && self.col == saved_col {
+                break;
+            }
+        }
+    }
+
+    fn skip_line(&mut self) {
+        while let Some(b) = self.peek() {
+            self.bump();
+            if b == b'\n' {
+                break;
             }
         }
     }
